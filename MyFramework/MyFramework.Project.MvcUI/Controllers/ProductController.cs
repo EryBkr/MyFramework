@@ -4,6 +4,7 @@ using MyFramework.Project.MvcUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,6 +28,8 @@ namespace MyFramework.Project.MvcUI.Controllers
             
             return View(model);
         }
+
+       
 
       
     }

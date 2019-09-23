@@ -79,6 +79,7 @@
     <Compile Include="Aspects\PostSharp\LogAspect.cs" />
     <Compile Include="Aspects\PostSharp\LogExceptionAspect.cs" />
     <Compile Include="Aspects\PostSharp\PerformanceCounterAspect.cs" />
+    <Compile Include="Aspects\PostSharp\SecuredOperations.cs" />
     <Compile Include="Aspects\PostSharp\TransactionalOperationAspect.cs" />
     <Compile Include="Business\Abstract\IGenericManager.cs" />
     <Compile Include="CrossCuttingConcerns\Caching\ICacheManager.cs" />
@@ -89,6 +90,9 @@
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogDetail.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogParameter.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Identity.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\AuthHelper.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\SecurityUtilities.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidatorTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EfEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\SingletonRepository.cs" />

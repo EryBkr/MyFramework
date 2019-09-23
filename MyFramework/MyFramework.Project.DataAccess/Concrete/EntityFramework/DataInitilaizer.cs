@@ -30,7 +30,20 @@ namespace MyFramework.Project.DataAccess.Concrete.EntityFramework
             {
                 context.Product.Add(item);
             }
+            context.SaveChanges();
 
+            List<Role> roles = new List<Role> { new Role { Name="Admin"}, new Role { Name = "User" } };
+            foreach (var item in roles)
+            {
+                context.Role.Add(item);
+            }
+            context.SaveChanges();
+
+            List<User> users = new List<User> { new User {Name="Black",Password="123456",Roles=new List<Role>{roles[0]},EMail="black@gmail.com"}, new User { Name = "White", Password = "123456", Roles = new List<Role> { roles[1] }, EMail = "white@gmail.com" } };
+            foreach (var item in users)
+            {
+                context.User.Add(item);
+            }
             context.SaveChanges();
             base.Seed(context);
         }

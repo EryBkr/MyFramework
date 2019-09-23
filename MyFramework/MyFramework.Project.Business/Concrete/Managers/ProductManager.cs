@@ -29,6 +29,7 @@ namespace MyFramework.Project.Business.Concrete.Managers
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [LogAspect(typeof(DatabaseLogger))]
         [LogExceptionAspect(typeof(DatabaseLogger))]
+        [SecuredOperations(Roles = "Admin")]
         public Product Add(Product entity)
         {
             
@@ -50,6 +51,7 @@ namespace MyFramework.Project.Business.Concrete.Managers
         [CacheAspect(typeof(MemoryCacheManager), 60)]
         [LogAspect(typeof(DatabaseLogger))]
         [PerformanceCounterAspect]
+        [SecuredOperations(Roles = "Admin")]
         public IQueryable<Product> GetAll()
         {
             return _productDal.GetAll();

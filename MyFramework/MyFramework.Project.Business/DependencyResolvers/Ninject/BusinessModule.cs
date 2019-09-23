@@ -17,8 +17,9 @@ namespace MyFramework.Project.Business.DependencyResolvers.Ninject
         {
             Bind<IProductManager>().To<ProductManager>().InSingletonScope();
             Bind<IProductDal>().To<EfProductDal>().InSingletonScope();
-            
 
+            Bind<IUserManager>().To<UserManager>().InSingletonScope();
+            Bind<IUsersDal>().To<EfUserDal>().InSingletonScope();
 
         }
     }
