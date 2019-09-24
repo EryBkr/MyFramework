@@ -1,5 +1,6 @@
 ﻿using MyFramework.Project.Business.Abstract;
 using MyFramework.Project.Entities.Concrete;
+using MyFramework.Project.MvcUI.Filters;
 using MyFramework.Project.MvcUI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,11 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MyFramework.Project.MvcUI.Controllers
 {
+    [AuthFilter]
     public class ProductController : Controller
     {
         IProductManager _productManager;
@@ -18,11 +21,13 @@ namespace MyFramework.Project.MvcUI.Controllers
         {
             _productManager = productManager;
             _userManager = userManager;
+           
         }
 
+     
         public ActionResult Index()
         {
-            
+           
             var model = new ProductListViewModel()
             {
                 Products = _productManager.GetAll().ToList()
