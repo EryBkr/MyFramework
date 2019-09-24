@@ -13,9 +13,11 @@ namespace MyFramework.Project.MvcUI.Controllers
     public class ProductController : Controller
     {
         IProductManager _productManager;
-        public ProductController(IProductManager productManager)
+        IUserManager _userManager;
+        public ProductController(IProductManager productManager,IUserManager userManager)
         {
             _productManager = productManager;
+            _userManager = userManager;
         }
 
         public ActionResult Index()
@@ -25,6 +27,7 @@ namespace MyFramework.Project.MvcUI.Controllers
             {
                 Products = _productManager.GetAll().ToList()
             };
+            ViewBag.Users = _userManager.GetAll().ToList();
             
             return View(model);
         }

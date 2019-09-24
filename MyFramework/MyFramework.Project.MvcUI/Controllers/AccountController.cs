@@ -1,5 +1,6 @@
 ﻿using MyFramework.Core.CrossCuttingConcerns.Security.Web;
 using MyFramework.Project.Business.Abstract;
+using MyFramework.Project.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,22 @@ namespace MyFramework.Project.MvcUI.Controllers
             }
 
             
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(User user)
+        {
+            _userService.Add(user);
+
+            return RedirectToAction("Index","Product");
         }
     }
 }

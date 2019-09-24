@@ -1,4 +1,6 @@
-﻿using MyFramework.Core.CrossCuttingConcerns.Security.Web;
+﻿using FluentValidation.Mvc;
+using MyFramework.Core.CrossCuttingConcerns.Security.Web;
+using MyFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using MyFramework.Core.Utilities.Mvc.Infastructure;
 using MyFramework.Project.Business.DependencyResolvers.Ninject;
 using System;
@@ -21,6 +23,7 @@ namespace MyFramework.Project.MvcUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             log4net.Config.XmlConfigurator.Configure();
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
+            FluentValidationModelValidatorProvider.Configure(provider => provider.ValidatorFactory = new NinjectValidationFactory(new ValidationModule()));
         }
 
         public override void Init()

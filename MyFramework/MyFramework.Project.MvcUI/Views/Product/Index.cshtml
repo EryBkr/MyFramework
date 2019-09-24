@@ -1,8 +1,7 @@
 ﻿@model MyFramework.Project.MvcUI.Models.ProductListViewModel
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -12,11 +11,17 @@
 </head>
 <body>
     <div> 
+
         @foreach (var item in Model.Products)
         {
             <b>@item.Name</b>
         }
-      
+            <hr />
+
+        @foreach (var item in (ViewBag.Users as IEnumerable<MyFramework.Project.Entities.Concrete.User>))
+        {
+           <p>@item.Name</p>
+        }
     </div>
 </body>
 </html>

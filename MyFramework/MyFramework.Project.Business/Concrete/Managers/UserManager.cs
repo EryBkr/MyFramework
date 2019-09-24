@@ -1,4 +1,6 @@
-﻿using MyFramework.Project.Business.Abstract;
+﻿using MyFramework.Core.Aspects.PostSharp;
+using MyFramework.Project.Business.Abstract;
+using MyFramework.Project.Business.ValidationsRules.FluentValidations;
 using MyFramework.Project.DataAccess.Abstract;
 using MyFramework.Project.Entities.ComplexType;
 using MyFramework.Project.Entities.Concrete;
@@ -18,6 +20,7 @@ namespace MyFramework.Project.Business.Concrete.Managers
         {
             _userDal = usersDal;
         }
+        [FluentValidateAspect(typeof(UserValidator))]
         public User Add(User entity)
         {
             _userDal.Add(entity);
