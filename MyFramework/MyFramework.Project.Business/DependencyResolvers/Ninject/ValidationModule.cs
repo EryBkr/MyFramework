@@ -16,6 +16,7 @@ namespace MyFramework.Project.Business.DependencyResolvers.Ninject
         {
             Bind<IValidator<Product>>().To<ProductValidator>().InSingletonScope();
             Bind<IValidator<User>>().To<UserValidator>().InSingletonScope();
+            Bind<IValidator<Haber>>().To<HaberValidator>().InSingletonScope();
         }
     }
 }

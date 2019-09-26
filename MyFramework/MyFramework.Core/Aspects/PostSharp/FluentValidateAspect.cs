@@ -29,5 +29,7 @@ namespace MyFramework.Core.Aspects.PostSharp
             }
             base.OnEntry(args);
         }
+
+       
     }
 }

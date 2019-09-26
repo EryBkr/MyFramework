@@ -21,6 +21,9 @@ namespace MyFramework.Project.Business.DependencyResolvers.Ninject
             Bind<IUserManager>().To<UserManager>().InSingletonScope();
             Bind<IUsersDal>().To<EfUserDal>().InSingletonScope();
 
+            Bind<IHaberManager>().To<HaberManager>().InSingletonScope();
+            Bind<IHaberDal>().To<EfHaberDal>().InSingletonScope();
+
         }
     }
 }

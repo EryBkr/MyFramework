@@ -19,20 +19,27 @@ namespace MyFramework.Project.MvcUI.Controllers
         {
             _userService = userManager;
         }
-        public string Login(string name,string pass)
+
+        [HttpGet]
+        public ActionResult Login()
+        {    
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string name, string pass)
         {
             var user = _userService.GetUserNameAndPassword(name, pass);
-            if (user!=null)
+            if (user != null)
             {
-                AuthHelper.CreateAuthCookie(new Guid(), user.Name, "black@gmail.com",DateTime.Now.AddMinutes(15),user.myRole,false);
-                return "Auth Başarılı";
+                AuthHelper.CreateAuthCookie(new Guid(), user.Name, "black@gmail.com", DateTime.Now.AddMinutes(15), user.myRole, false);
+                return RedirectToAction("Index","Admin");
             }
             else
             {
-                return "Auth BAŞARISIZ";
+                return View();
             }
-
-            
         }
 
         [HttpGet]
@@ -56,7 +63,7 @@ namespace MyFramework.Project.MvcUI.Controllers
         {
             FormsAuthentication.SignOut();
             System.Web.HttpContext.Current.Session.Abandon();
-            return RedirectToAction("Index","Product");
+            return RedirectToAction("Index","Home");
         }
     }
 }

@@ -20,6 +20,7 @@ namespace MyFramework.Project.DataAccess.Concrete.EntityFramework
         public DbSet<Category> Category { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Haber> Haberler { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

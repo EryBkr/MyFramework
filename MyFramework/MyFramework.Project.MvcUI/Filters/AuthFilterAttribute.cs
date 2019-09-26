@@ -14,7 +14,7 @@ namespace MyFramework.Project.MvcUI.Filters
         {
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                filterContext.Result = new RedirectResult("/Hata/Index");
+                filterContext.Result = new RedirectResult("/Account/Login");
             }
         }
     }

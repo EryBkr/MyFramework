@@ -50,6 +50,7 @@ namespace MyFramework.Core.DataAccess.EntityFramework
         public TEntity Update(TEntity entity)
         {
             _objectSet.AddOrUpdate(entity);
+            _dB.SaveChanges();
             return entity;
 
         }
